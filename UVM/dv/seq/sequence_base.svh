@@ -20,11 +20,11 @@ class sequence_base extends uvm_sequence#(riscv_seq_item);
         assert(req.randomize with{req.kind == count;});
         if(req.data[6:0] == 7'b1101111)
             begin
-            jal = 50;
+            jal = 150; //unconditional jump
             end
     end
     finish_item(req);
-jal = jal - 1;
+    jal = jal - 1;
     count = count + 1;
   //  num = num.next;
     end
