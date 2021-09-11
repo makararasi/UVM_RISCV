@@ -2,7 +2,7 @@ class sequence_base extends uvm_sequence#(riscv_seq_item);
    
   `uvm_object_utils(sequence_base)
   riscv_seq_item req;
-  int count = 0,jal = 6;
+  int count ,jal ;
  // enum int {li_x1_1020, sw_x0_0x1, loop_lw_x2_x1, addi_x2_x2_1, sw_x2_0x1, j_loop} num;
   //Constructor
   function new(string name = "sequence_base");
@@ -18,6 +18,7 @@ class sequence_base extends uvm_sequence#(riscv_seq_item);
     if(count  <= 5)
     begin
         assert(req.randomize with{req.kind == count;});
+       jal = jal + 1;
         if(req.data[6:0] == 7'b1101111)
             begin
             jal = 150; //unconditional jump
