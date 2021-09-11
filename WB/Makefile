@@ -1,5 +1,15 @@
 
+questa: questa_build_tb questa_sim
 
+
+questa_build_tb : 
+	vlog top.sv
+
+questa_sim:
+	vsim -c top -do "run -a; q"
+
+questa_clean:
+	rm -rf work transcript
 
 vivado: vivado_build_tb vivado_sim
 
