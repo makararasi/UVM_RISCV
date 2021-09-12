@@ -4,6 +4,7 @@ class riscv_seq_item extends uvm_sequence_item;
   //data and control fields
   rand bit [31:0] data; 
   rand int kind;
+  rand bit valid;
 
 constraint content {(kind == 0)         -> data == 32'h3fc00093;
 		            (kind == 1)        -> data == 32'h0000a023;
