@@ -20,6 +20,7 @@ class test_base extends uvm_test;
       // We raise objection to keep the test from completing
       phase.raise_objection(this);
       begin
+	e.riscv_agent.driver.count = 0 ;//setting start address
         seq.start(e.riscv_agent.seqr);
       end
       // We drop objection to allow the test to complete
@@ -50,6 +51,7 @@ class test_1 extends uvm_test;
       // We raise objection to keep the test from completing
       phase.raise_objection(this);
       begin
+	e.riscv_agent.driver.count = 0 ;//setting start address
 	seq.get_sequencer(e.riscv_agent.seqr);
         seq.start(e.riscv_agent.seqr);
       end
