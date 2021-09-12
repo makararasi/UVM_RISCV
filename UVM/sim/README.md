@@ -1,1 +1,0 @@
-Makefile and work directory
